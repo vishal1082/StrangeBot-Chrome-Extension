@@ -6,14 +6,12 @@ chrome.extension.sendMessage({}, function(response) {
 		// ----------------------------------------------------------
 		// This part of the script triggers when page is done loading
 		console.log("Loaded.");	
-		script();
-		
+		script();		
 		// ----------------------------------------------------------
 
 	}
 	}, 10);
 });
-
 
 
 
@@ -29,7 +27,7 @@ function script()
 	}
 	 
 	if(window.location.href.indexOf("http://steamcommunity.com/tradeoffer/") > -1)
-	{
+	{	
 	    //alert("hit");
 	    setTimeout(steamverify, Math.floor((Math.random()*5000)+3000));    
 	}
@@ -37,24 +35,30 @@ function script()
 	 
 	if(document.domain == "dota2lounge.com")
 	{
-	    //setTimeout(dota2loungefreezebtn, Math.floor((Math.random()*10000)+5000));
+		var port = chrome.runtime.connect({name: "knockknock"});
+		//OpenInNewTab("http://www.google.com/", port); -- example
 	    try{
 	        window.scrollTo(0,document.body.scrollHeight);
 	        var startTime = Date.now();
-	        setInterval(function() { console.log((Date.now() - startTime) + 'ms elapsed'); try{ click(freezebutton); } catch(error) { setTimeout(checkforoffer,5000); } }, 7000);
-	        //setTimeout(click(freezebutton),  5000);
-	        //setTimeout(click(freezebutton),  7000);
-	        //alert("hit");
-	        //setTimeout(alert("hit2"),5000);
-	        //setTimeout(click(freezebutton), Math.floor((Math.random()*15000)+10000));
+	        setInterval( function() { 
+	        	console.log((Date.now() - startTime) + 'ms elapsed'); 
+	        	try {
+	        		click(freezebutton); 
+	        	}
+	        	catch(error) { 
+	        		setTimeout(checkforoffer,5000); 
+	        	} 
+	        }, 7000);
 	    }
 	    catch(error){
 	        setTimeout(checkforoffer, 5000);
 	    }	
 	}
 	 
-	function OpenInNewTab(url ){
-	    GM_openInTab(url.href, "insert");    
+	function OpenInNewTab(url, port){
+		port.postMessage("000:".concat(url));
+		//chrome.extension.sendMessage({}, url.href, 10);	
+	    //GM_openInTab(url.href, "insert");    
 	}
 	 
 	function checkforoffer(){
@@ -101,6 +105,12 @@ function script()
 	//    console.log("hit");
 	//    setTimeout(steamtrustuser, 1000);
 	//}
+
+	function steamtrustuser(){
+	    //div.newmodal > div.newmodal_content_border > div.newmodal_content > div.newmodal_buttons > div.btn_grey_white_innerfade btn_medium > span
+	    var target = $("/html/body/div[182]/div[2]/div/div[2]/div[1]/span");//   li.booster > div.top > strong > a:first");
+	    clickJ_Node(target);
+	}
 	 
 	function steamclose(){    
 	    //alert("hit");
@@ -115,12 +125,6 @@ function script()
 	    var evt = document.createEvent('MouseEvents');
 	    evt.initMouseEvent('click', true, true, window, 0, 1, 1, 1, 1, false, false, false, false, 0, null);
 	    elm.dispatchEvent(evt);
-	}
-	 
-	function steamtrustuser(){
-	    //div.newmodal > div.newmodal_content_border > div.newmodal_content > div.newmodal_buttons > div.btn_grey_white_innerfade btn_medium > span
-	    var target = $("/html/body/div[182]/div[2]/div/div[2]/div[1]/span");//   li.booster > div.top > strong > a:first");
-	    clickJ_Node(target);
 	}
 	 
 	function clickJ_Node (jNode){
