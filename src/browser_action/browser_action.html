@@ -1,17 +1,73 @@
 <!doctype html>
 <style type="text/css">
+	
+	body {
+		margin: 0px;
+	}
+
 	#mainPopup {
-		padding: 10px;
-		height: 200px;
-		width: 400px;
+		height: 179px;
+		width: 200px;
 		font-family: Helvetica, Ubuntu, Arial, sans-serif;
+		font-size: 12px;
+		float: left;
 	}
-	h1 {
-		font-size: 2em;
+
+	.logo {
+		text-align: center;
+		border-bottom: 1px solid grey;
 	}
+
+	.logo img:active {
+		position: relative;
+		right: 1px;
+		top: 1px;
+	}
+
+	.column {
+		width: 98px;
+		margin: 1px;
+		float: left;
+		background-color: white;
+
+	}
+
+	.column p{
+		margin: 0px;
+		padding: 5px;
+	}
+	
+	#end_block {
+		width: 200px;
+		height: 100px;
+		/*border-top: 1px solid grey;*/
+		float: left;
+		background-color: #e3e3e3; 
+		text-align: center;
+	}
+
+
 </style>
 
 <div id="mainPopup">
-<h1>Hello extensionizr!</h1>
-<p>To shut this popup down, edit the manifest file and remove the "default popup" key. To edit it, just edit ext/page_action/page_action.html. The CSS is there, too.</p>
+	<div class="logo">
+		<a href="http://dota2lounge.com/mybets"><img src="/icons/tinker_icon48.png" title="Try Middle Click!!"</img></a>
+	</div>	
+		
+	<div class="column">
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis velit non praesentium dignissimos commodi recusandae similique, harum possimus neque, modi esse dolore accusantium soluta sit eligendi tenetur reiciendis doloremque corporis!</p>
+	</div>
+	
+	<div class="column">
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores officia iste autem culpa sit quos maiores voluptate nemo possimus consequatur, odio minus esse exercitationem optio tempore eos iusto. Ipsum, neque.</p>
+	</div>
+
+	<div id="end_block">
+		<input type="checkbox">XMEN? <br>
+		<input type="checkbox">XMEN? <br>
+		<input type="checkbox">XMEN? <br>
+		<input type="checkbox">XMEN? <br>
+		<input type="checkbox">XMEN? <br>
+	</div>
+
 </div>

@@ -16,8 +16,8 @@
     "persistent": false
   },
   "browser_action": {
-    "default_icon": "icons/icon19.png",
-    "default_title": "page action demo",
+    "default_icon": "icons/tinker_icon19.png",
+    "default_title": "D2L BOT",
     "default_popup": "src/browser_action/browser_action.html"
   },
   "permissions": [	
