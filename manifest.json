@@ -20,7 +20,7 @@
     "default_title": "page action demo",
     "default_popup": "src/page_action/page_action.html"
   },
-  "permissions": [
+  "permissions": [	
     "tabs",
     "http://dota2lounge.com/mybets",
     "http://steamcommunity.com/tradeoffer/*",
@@ -34,7 +34,7 @@
 		"http://steamcommunity.com/trade/*"
       ],
       "js": [
-        "src/inject/inject.js"
+        "thirdParty/jquery.min.js", "src/inject/inject.js"
       ]
     }
   ]
